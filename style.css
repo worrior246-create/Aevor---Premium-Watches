@@ -1,0 +1,305 @@
+/* ===== RESET AND BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* Sans-serif for body text */
+    font-weight: 400;
+    line-height: 1.6;
+    color: #ffffff;
+    /* White text for bright theme */
+    background: #000080;
+    /* Deep navy background */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    /* Serif for headings */
+    font-weight: 700;
+    color: #FFD700;
+    /* Golden color for titles and product names */
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: opacity 0.3s ease;
+    /* Subtle hover effect */
+}
+
+a:hover {
+    opacity: 0.8;
+    /* Subtle hover without flashiness */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== CONTAINER AND LAYOUT ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+header {
+    background-color: rgba(0, 0, 128, 0.9);
+    /* Semi-transparent deep navy */
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #ffffff;
+    /* White divider */
+}
+
+.logo h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    /* Elegant spacing */
+    background-image: url('https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');
+    /* Example background image for title - replace with your desired image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 10px 20px;
+    /* Add padding to make the background visible */
+    border-radius: 5px;
+    /* Optional: for a nicer look */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+nav a {
+    font-weight: 500;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    background: #000080;
+    /* Deep navy background */
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Semi-transparent white */
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.cta-button:hover {
+    opacity: 0.8;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about {
+    padding: 80px 0;
+    background-color: rgba(0, 0, 128, 0.8);
+    /* Deep navy overlay */
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.about p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* ===== COLLECTION SECTION ===== */
+.collection {
+    padding: 80px 0;
+    background-color: rgba(0, 0, 128, 0.9);
+    /* Deep navy overlay */
+}
+
+.collection h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.watch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+.watch-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Semi-transparent white for cards */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(23, 138, 190, 0.637);
+    /* Subtle shadow */
+}
+
+.watch-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.watch-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.watch-item p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.product-details {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.product-details summary {
+    cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.product-details p {
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+/* ===== CRAFTSMANSHIP SECTION ===== */
+.craftsmanship {
+    padding: 80px 0;
+    background-color: rgba(0, 0, 128, 0.8);
+    /* Deep navy overlay */
+}
+
+.craftsmanship h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.craft-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.craft-text {
+    flex: 1;
+}
+
+.craft-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.craft-text p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.craft-image {
+    flex: 1;
+}
+
+.craft-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: rgba(0, 0, 128, 0.9);
+    /* Deep navy overlay */
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.social-links a {
+    font-size: 0.9rem;
+    margin: 0 10px;
+}

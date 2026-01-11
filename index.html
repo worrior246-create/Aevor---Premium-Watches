@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aevor - Premium Watches</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ===== RESET AND BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            /* Sans-serif for body text */
+            font-weight: 400;
+            line-height: 1.6;
+            color: #FFFFF0;
+            /* Ivory text for dark theme */
+            background: #000000;
+            /* Black background for dark theme */
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+            /* Serif for headings */
+            font-weight: 700;
+            color: #FFFFF0;
+            /* Ivory for headings to maintain hierarchy */
+        }
+
+        a {
+            text-decoration: none;
+            color: #FFFFF0;
+            /* Ivory links */
+            transition: opacity 0.3s ease;
+            /* Subtle hover effect */
+        }
+
+        a:hover {
+            opacity: 0.8;
+            /* Subtle hover without flashiness */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== CONTAINER AND LAYOUT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            /* Increased padding for more white space */
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: rgba(81, 91, 224, 0.95);
+            /* Semi-transparent black for subtle overlay */
+            padding: 30px 0;
+            /* Increased padding for white space */
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #FFFFF0;
+            /* Ivory divider */
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            /* Slightly larger for hierarchy */
+            font-weight: 700;
+            letter-spacing: 2px;
+            /* Elegant spacing */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            gap: 40px;
+            /* More gap for balance */
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: #1642d3;
+            /* Black background */
+            padding: 120px 0;
+            /* Increased padding for white space */
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            /* Larger for strong hierarchy */
+            margin-bottom: 30px;
+            /* More margin */
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            /* Slightly larger */
+            font-weight: 300;
+            margin-bottom: 50px;
+            /* More margin */
+            max-width: 700px;
+            /* Wider for balance */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 35px;
+            /* Larger padding */
+            background-color: rgba(255, 255, 240, 0.1);
+            /* Subtle ivory overlay */
+            border: 2px solid #FFFFF0;
+            /* Ivory border */
+            color: #FFFFF0;
+            /* Ivory text */
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.3s ease;
+            /* Subtle hover */
+        }
+
+        .cta-button:hover {
+            opacity: 0.8;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 100px 0;
+            /* Increased padding */
+            background-color: rgba(42, 24, 197, 0.9);
+            /* Black overlay */
+        }
+
+        .about h2 {
+            font-size: 2.8rem;
+            /* Larger for hierarchy */
+            margin-bottom: 40px;
+            /* More margin */
+            text-align: center;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            /* Slightly larger */
+            font-weight: 300;
+            margin-bottom: 25px;
+            /* More margin */
+            max-width: 900px;
+            /* Wider */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* ===== COLLECTION SECTION ===== */
+        .collection {
+            padding: 100px 0;
+            /* Increased padding */
+            background-color: rgba(43, 21, 168, 0.95);
+            /* Black overlay */
+        }
+
+        .collection h2 {
+            font-size: 2.8rem;
+            /* Larger */
+            margin-bottom: 60px;
+            /* More margin */
+            text-align: center;
+        }
+
+        .watch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            /* Slightly larger min-width for balance */
+            gap: 50px;
+            /* More gap */
+            justify-items: center;
+        }
+
+        .watch-item {
+            background-color: rgba(31, 199, 221, 0.493);
+            /* Very subtle ivory overlay */
+            padding: 25px;
+            /* More padding */
+            border-radius: 8px;
+            text-align: center;
+            max-width: 320px;
+            box-shadow: 0 4px 8px rgba(22, 227, 241, 0.774);
+            /* Subtle shadow */
+        }
+
+        .watch-item img {
+            width: 100%;
+            height: 260px;
+            /* Slightly taller */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .watch-item h3 {
+            font-size: 1.6rem;
+            /* Larger */
+            margin-bottom: 12px;
+        }
+
+        .watch-item p {
+            font-size: 1rem;
+            /* Slightly larger */
+            font-weight: 300;
+            margin-bottom: 18px;
+        }
+
+        .product-details {
+            text-align: left;
+            margin-top: 12px;
+        }
+
+        .product-details summary {
+            cursor: pointer;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .product-details p {
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        /* ===== CRAFTSMANSHIP SECTION ===== */
+        .craftsmanship {
+            padding: 100px 0;
+            /* Increased padding */
+            background-color: rgba(36, 14, 131, 0.9);
+            /* Black overlay */
+        }
+
+        .craftsmanship h2 {
+            font-size: 2.8rem;
+            /* Larger */
+            margin-bottom: 60px;
+            /* More margin */
+            text-align: center;
+        }
+
+        .craft-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            /* More gap */
+        }
+
+        .craft-text {
+            flex: 1;
+        }
+
+        .craft-text h3 {
+            font-size: 1.6rem;
+            /* Larger */
+            margin-bottom: 18px;
+        }
+
+        .craft-text p {
+            font-size: 1.1rem;
+            /* Slightly larger */
+            font-weight: 300;
+            margin-bottom: 35px;
+        }
+
+        .craft-image {
+            flex: 1;
+        }
+
+        .craft-image img {
+            width: 100%;
+            height: 420px;
+            /* Slightly taller */
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: rgba(39, 7, 90, 0.95);
+            /* Black overlay */
+            padding: 50px 0;
+            /* Increased padding */
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.3rem;
+            /* Larger */
+            margin-bottom: 12px;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            /* Slightly larger */
+            font-weight: 300;
+            margin-bottom: 6px;
+        }
+
+        .social-links a {
+            font-size: 1rem;
+            /* Slightly larger */
+            margin: 0 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Aevor</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="#craftsmanship">Craftsmanship</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h2>Timeless Elegance</h2>
+                <p>Where classic craftsmanship meets modern design for the discerning individual.</p>
+                <a href="#collection" class="cta-button">Explore Collection</a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Aevor</h2>
+                <p>Founded in 2020, Aevor embodies the spirit of Swiss horology with a fresh perspective. We blend
+                    traditional watchmaking techniques with contemporary aesthetics, creating pieces that stand the test
+                    of time. Our brand is dedicated to young professionals who appreciate the artistry of precision
+                    engineering and the allure of minimalist design.</p>
+                <p>Heritage: Inspired by centuries of horological mastery, Aevor watches are crafted to honor the legacy
+                    of fine timepieces while embracing innovation.</p>
+            </div>
+        </section>
+
+        <section id="collection" class="collection">
+            <div class="container">
+                <h2>Our Collection</h2>
+                <div class="watch-grid">
+                    <div class="watch-item">
+                        <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Heron - Elegant minimalist watch with sapphire crystal dial">
+                        <h3>Heron</h3>
+                        <p>A minimalist timepiece with a sapphire crystal dial and sleek design.</p>
+                        <details class="product-details">
+                            <summary>Details</summary>
+                            <p><strong>Case Material:</strong> Stainless Steel</p>
+                            <p><strong>Movement:</strong> Swiss Quartz</p>
+                            <p><strong>Water Resistance:</strong> 50m</p>
+                            <p><strong>Price:</strong> $1,250</p>
+                        </details>
+                    </div>
+                    <div class="watch-item">
+                        <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Linea - Timeless watch with vintage-inspired subdials">
+                        <h3>Linea</h3>
+                        <p>Timeless elegance with vintage-inspired subdials and refined lines.</p>
+                        <details class="product-details">
+                            <summary>Details</summary>
+                            <p><strong>Case Material:</strong> Rose Gold-Plated Stainless Steel</p>
+                            <p><strong>Movement:</strong> Automatic</p>
+                            <p><strong>Water Resistance:</strong> 100m</p>
+                            <p><strong>Price:</strong> $2,500</p>
+                        </details>
+                    </div>
+                    <div class="watch-item">
+                        <img src="https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Anchor - Precision chronograph with ceramic bezel">
+                        <h3>Anchor</h3>
+                        <p>Precision chronograph with ceramic bezel and tachymetric scale.</p>
+                        <details class="product-details">
+                            <summary>Details</summary>
+                            <p><strong>Case Material:</strong> Ceramic</p>
+                            <p><strong>Movement:</strong> Swiss Automatic Chronograph</p>
+                            <p><strong>Water Resistance:</strong> 200m</p>
+                            <p><strong>Price:</strong> $3,200</p>
+                        </details>
+                    </div>
+                    <div class="watch-item">
+                        <img src="https://images.unsplash.com/photo-1587925358603-c2eea40c690f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Epoch - Water-resistant dive watch with luminous markers">
+                        <h3>Epoch</h3>
+                        <p>Water-resistant dive watch with luminous markers and robust build.</p>
+                        <details class="product-details">
+                            <summary>Details</summary>
+                            <p><strong>Case Material:</strong> Titanium</p>
+                            <p><strong>Movement:</strong> Swiss Quartz</p>
+                            <p><strong>Water Resistance:</strong> 300m</p>
+                            <p><strong>Price:</strong> $1,800</p>
+                        </details>
+                    </div>
+                    <div class="watch-item">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Verum - Sophisticated dress watch with mother-of-pearl dial">
+                        <h3>Verum</h3>
+                        <p>Sophisticated dress watch with mother-of-pearl dial and gold accents.</p>
+                        <details class="product-details">
+                            <summary>Details</summary>
+                            <p><strong>Case Material:</strong> 18K Gold-Plated</p>
+                            <p><strong>Movement:</strong> Swiss Automatic</p>
+                            <p><strong>Water Resistance:</strong> 50m</p>
+                            <p><strong>Price:</strong> $4,500</p>
+                        </details>
+                    </div>
+                    <div class="watch-item">
+                        <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Sentinel - Avant-garde watch with asymmetrical dial">
+                        <h3>Sentinel</h3>
+                        <p>Avant-garde design with asymmetrical dial and titanium case.</p>
+                        <details class="product-details">
+                            <summary>Details</summary>
+                            <p><strong>Case Material:</strong> Titanium with Ceramic Inlays</p>
+                            <p><strong>Movement:</strong> Swiss Automatic</p>
+                            <p><strong>Water Resistance:</strong> 100m</p>
+                            <p><strong>Price:</strong> $2,800</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="craftsmanship" class="craftsmanship">
+            <div class="container">
+                <h2>Craftsmanship</h2>
+                <div class="craft-content">
+                    <div class="craft-text">
+                        <h3>Materials</h3>
+                        <p>Each Aevor watch is meticulously crafted from premium materials like stainless steel,
+                            ceramic, and sapphire crystal, ensuring durability and elegance.</p>
+                        <h3>Precision</h3>
+                        <p>Powered by Swiss-made movements with chronometer certification, our timepieces offer
+                            unparalleled accuracy and reliability.</p>
+                        <h3>Legacy</h3>
+                        <p>Rooted in the traditions of horology, Aevor continues the legacy of master watchmakers,
+                            blending heritage with forward-thinking design.</p>
+                    </div>
+                    <div class="craft-image">
+                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Watchmaking Craftsmanship">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@aevor.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <p>Address: 123 Luxury Lane, Geneva, Switzerland</p>
+                </div>
+                <div class="social-links">
+                    <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2023 Aevor. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
